@@ -8,7 +8,7 @@ EBIN = ebin
 compile: $(EBIN) $(EBIN)/$(PROJECT).app
 
 $(EBIN)/$(PROJECT).app:
-	@erlc -v +deterministic -o $(EBIN) $(SOURCES)
+	@erlc -v +debug_info -o $(EBIN) $(SOURCES)
 	@sed "s/{modules,\s*\[\]}/{modules, \[$(MODULES)\]}/" src/$(PROJECT).app.src > $@
 
 $(EBIN):
